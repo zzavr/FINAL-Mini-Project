@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Project of Timur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        select {
+            padding: 5px;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin-top: 20px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-size: 16px;
+        }
+
+        td {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>University Timetable</h1>
+    <form method="POST">
+        <label for="level">Select Level:</label>
+        <select name="level" id="level">
+            <option value="Undergraduate">Undergraduate</option>
+            <option value="Graduate">Graduate</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+    {% if courses %}
+    <table>
+        <tr>
+            <th>Course Name</th>
+            <th>Day</th>
+            <th>Time</th>
+        </tr>
+        {% for course in courses %}
+        <tr>
+            <td>{{ course[0] }}</td>
+            <td>{{ course[1] }}</td>
+            <td>{{ course[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
